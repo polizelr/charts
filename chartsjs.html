@@ -14,26 +14,69 @@
 
 
     <script>
-        let myChart = document.getElementById('myChart').getContext('2d')
+        let myChart = document.getElementById('myChart').getContext('2d');
+
+        //global options
+        Chart.defaults.global.defaultFontFamily = 'Lato'
+        Chart.defaults.global.defaultFontSize = 18
+        Chart.defaults.global.defaultFontColor = '#777'
+
 
         //create an object
         let massPopChart = new Chart(myChart, {
-            type:'bar', //bar, horizontalBar, pie, line, daughnut, radar, polarArea
+            type:'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
             data:{
-                labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+                labels:['São Paulo', 'Rio de Janeiro', 'Brasilia', 'Salvador', 'Fortaleza', 'Belo Horizonte'],
                 datasets:[{                
                     label:'Population',
                     data:
-                    [   617594,
-                        184045,
-                        178042,
-                        153060,
-                        144229,
-                        129779
-                    ]
+                    [   12252023,
+                        6718903,
+                        3015268,
+                        2872347,
+                        2669342,
+                        2512070
+                    ],
+                    //backgroundColor:'green',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)'
+                    ],
+                    borderWidth:0.5,
+                    borderColor:'#777',
+                    hoverBorderWidth:1,
+                    hoverBorderColor: '#000'                    
                 }]
             },
-            options:{}
+            options:{
+                title:{
+                    display:true,
+                    text:'Largest Cities in Brazil',
+                    fontSize:25
+                },
+                legend:{
+                    display:true,
+                    position:'right',
+                    labels:{
+                        fontColor:'#000'
+                    }
+                },
+                layout:{
+                    padding:{
+                        left:50,
+                        right:0,
+                        bottom:0,
+                        top:0
+                    }
+                },
+                tooltips:{
+                    enabled:true
+                }
+            }
         });
 
 
